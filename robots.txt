@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.performingartsphysiotherapy.com/sitemap.xml
