@@ -4,6 +4,17 @@
 <meta name="description" content="Türkiye’nin ilk performans sanatları fizyoterapisi platformu. Bilimin performansla buluştuğu yer: dansçılar ve sahne sanatları profesyonelleri için fizyoterapi, hareket bilimi ve performans odaklı yaklaşımlar.">
 <meta name="color-scheme" content="light">
 <link rel="canonical" href="https://www.performingartsphysiotherapy.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Performing Arts Physiotherapy">
+<meta property="og:title" content="Performans Sanatları Fizyoterapisi">
+<meta property="og:description" content="Türkiye’nin ilk performans sanatları fizyoterapisi platformu. Bilimin performansla buluştuğu yer.">
+<meta property="og:url" content="https://www.performingartsphysiotherapy.com/">
+<meta property="og:image" content="https://www.performingartsphysiotherapy.com/img/photos/p23.jpg">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="933">
+<meta property="og:image:alt" content="Sahne ışıkları altında tendu yapan bir balerin">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
@@ -73,8 +84,6 @@ a{color:inherit}
 .brand{text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
 .brand b{font-family:var(--display);font-weight:500;font-size:21px;letter-spacing:.01em}
 .brand span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:3px}
-.brand-wrap{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.brand-logo{width:46px;height:46px;flex:none;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
 .nav{display:flex;gap:22px;margin-left:auto}
 .nav a{text-decoration:none;font-size:15px;color:var(--muted);transition:color .15s}
 .nav a:hover{color:var(--ink)}
@@ -348,7 +357,6 @@ p{margin:0}
 .split.wide{grid-template-columns:1fr 1fr}
 .split.wide .ph{aspect-ratio:4/3}
 @media (max-width:900px){ .split.wide{grid-template-columns:1fr} }
-.ph.collage{aspect-ratio:1672/941;border-radius:4px}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,1.4vw,16px)}
 .gallery .ph{aspect-ratio:3/2}
 @media (max-width:700px){
@@ -496,17 +504,13 @@ html[lang="de"] h2, html[lang="de"] h3, html[lang="de"] .topic, html[lang="de"] 
 
 footer{border-top:1px solid var(--line);padding-block:32px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
-.foot-logo{display:block;width:150px;height:150px;margin:0 auto 24px;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
 </style>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand-wrap" href="#top" aria-label="Aleyna Keyif">
-      <img class="brand-logo" src="img/logo-sm.png" width="160" height="160" alt="">
-      <span class="brand">
+    <a class="brand" href="#top" aria-label="Aleyna Keyif">
       <b>Aleyna Keyif</b>
       <span data-i18n="brandSub">Fizyoterapist</span>
-    </span>
     </a>
     <nav class="nav" id="nav" aria-label="Sayfalar">
       <a href="#top" data-nav="home" data-i18n="navHome">Ana Sayfa</a>
@@ -559,10 +563,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
   </section>
 
   <section class="gallery-wrap" data-page="home" aria-label="Galeri" style="padding-block:0 clamp(40px,6vw,72px)">
-    <div class="wrap">
-      <img class="ph collage" src="img/photos/n-collage.jpg" width="1672" height="941" alt="Sahne sanatlarından kareler: hip-hop, çağdaş dans, step dansı, Latin dansı, halk dansı, hava akrobasisi, müzikal kulisi ve opera" data-alt-en="Scenes from the performing arts: hip-hop, contemporary dance, tap, Latin dance, folk dance, aerial arts, a musical theatre dressing room and opera" loading="lazy">
-    </div>
-    <div class="wrap gallery" style="margin-top:clamp(8px,1.4vw,16px)">
+    <div class="wrap gallery">
       <img class="ph" src="img/photos/p12.jpg" width="1400" height="933" style="object-position:57% 45%" data-cx="0.567" data-cy="0.454" alt="Kulis bankında oturmuş, dizini tutan puant ayakkabılı bir balerin" data-alt-en="A ballerina in pointe shoes on a backstage bench, holding her knee" loading="lazy">
       <img class="ph" src="img/photos/n-folk.jpg" width="1536" height="1024" style="object-position:55% 40%" data-cx="0.55" data-cy="0.4" alt="Sahnede geleneksel kostümleriyle halk dansı yapan bir topluluk" data-alt-en="A folk dance ensemble in traditional costume on stage" loading="lazy">
     </div>
@@ -918,7 +919,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 </main>
 
 <footer>
-  <img class="foot-logo" src="img/logo.png" width="600" height="600" alt="Performing Arts Physiotherapy amblemi" data-alt-en="Performing Arts Physiotherapy emblem" loading="lazy">
   <div class="wrap">
     <span class="label">© Aleyna Keyif · <span lang="en">performingartsphysiotherapy.com</span></span>
     <span class="label" data-i18n="footer">Performans Sanatları Fizyoterapisi</span>
@@ -1111,14 +1111,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
     canvasLabel:"Bewegungsanalyse-Zeichnung, die die Gelenkwinkel einer Tänzerin in einer Abfolge von Positionen zeigt"
   };
   const ALT_DE = {
-    "logo.png":"Emblem von Performing Arts Physiotherapy",
     "n-hiphop.jpg":"Eine Tänzerin tanzt mit einer Gruppe im Bühnenlicht",
     "n-backstage.jpg":"Hinter der Bühne: beleuchteter Schminkspiegel, Kostüme und im Hintergrund eine Vorstellung",
     "n-duet.jpg":"Zwei zeitgenössische Tänzer auf der Bühne",
     "n-ankle-tape.jpg":"Eine Ballerina tapt hinter der Bühne ihr Sprunggelenk",
     "n-shoulder-tape.jpg":"Tape wird vor dem Schminkspiegel auf die Schulter einer Künstlerin geklebt",
     "n-singer.jpg":"Eine Sängerin singt am Mikrofon mit Orchesterbegleitung",
-    "n-collage.jpg":"Szenen aus den darstellenden Künsten: Hip-Hop, zeitgenössischer Tanz, Stepptanz, lateinamerikanischer Tanz, Volkstanz, Luftakrobatik, eine Musical-Garderobe und Oper",
     "aleyna-portrait.jpg":"Physiotherapeutin Aleyna Keyif",
     "aleyna-wembley.jpg":"Physiotherapeutin Aleyna Keyif hinter der Bühne in der OVO Arena Wembley",
     "aleyna-backstage.jpg":"Zwei Künstlerinnen hinter der Bühne zwischen Kostümständern",
