@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Performans Sanatları Fizyoterapisi</title>
-<meta name="description" content="Fzt. Aleyna Keyif ile dansçılar, müzisyenler ve sahne sanatçıları için fizyoterapi. Online danışmanlıkla ağrılardan kurtulun, sanatınıza odaklanın.">
+<meta name="description" content="Türkiye’nin ilk performans sanatları fizyoterapisi platformu. Bilimin performansla buluştuğu yer: dansçılar ve sahne sanatları profesyonelleri için fizyoterapi, hareket bilimi ve performans odaklı yaklaşımlar.">
+<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://www.performingartsphysiotherapy.com/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
@@ -13,19 +14,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>
 :root{
-  --ground:#F1EFF4;
-  --surface:#FAF9FC;
-  --ink:#1E1826;
-  --muted:#5F576B;
-  --line:#D8D3DF;
-  --accent:#D6334F;
-  --accent-ink:#B0223D;
-  --satin:#F1D9D6;
-  --satin-ink:#5A2432;
-  --ok:#2C8157;
-  --warn:#A86B12;
-  --figure:#1E1826;
-  --figure-far:rgba(30,24,38,.32);
+  color-scheme:light;
+  --ground:#F8F4EE;
+  --surface:#FFFFFF;
+  --ink:#1B1A1F;
+  --muted:#4F4A55;
+  --line:#E4DCD2;
+  --accent:#B23A48;
+  --accent-ink:#962C3B;
+  --satin:#F1E4DA;
+  --satin-ink:#3E1F27;
+  --ok:#2A7650;
+  --warn:#94600F;
+  --figure:#1B1A1F;
+  --figure-far:rgba(27,26,31,.30);
 
   --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --body:"Hanken Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
@@ -33,40 +35,6 @@
 
   --gutter:clamp(16px, 4vw, 48px);
   --maxw:1180px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --ground:#141019;
-    --surface:#1C1723;
-    --ink:#EDE9F2;
-    --muted:#A79FB3;
-    --line:#342D3E;
-    --accent:#FF5C77;
-    --accent-ink:#FF7C92;
-    --satin:#33202B;
-    --satin-ink:#F6D3D6;
-    --ok:#5CC98F;
-    --warn:#E6AC4E;
-    --figure:#EDE9F2;
-    --figure-far:rgba(237,233,242,.30);
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --ground:#141019;
-  --surface:#1C1723;
-  --ink:#EDE9F2;
-  --muted:#A79FB3;
-  --line:#342D3E;
-  --accent:#FF5C77;
-  --accent-ink:#FF7C92;
-  --satin:#33202B;
-  --satin-ink:#F6D3D6;
-  --ok:#5CC98F;
-  --warn:#E6AC4E;
-  --figure:#EDE9F2;
-  --figure-far:rgba(237,233,242,.30);
 }
 
 *{box-sizing:border-box}
@@ -105,6 +73,8 @@ a{color:inherit}
 .brand{text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
 .brand b{font-family:var(--display);font-weight:500;font-size:21px;letter-spacing:.01em}
 .brand span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.brand-wrap{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.brand-logo{width:46px;height:46px;flex:none;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
 .nav{display:flex;gap:22px;margin-left:auto}
 .nav a{text-decoration:none;font-size:15px;color:var(--muted);transition:color .15s}
 .nav a:hover{color:var(--ink)}
@@ -117,7 +87,36 @@ a{color:inherit}
   padding:5px 10px;border-radius:999px;cursor:pointer;font:inherit;letter-spacing:.06em;
 }
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
-@media (max-width:1080px){ .nav{display:none} .lang{margin-left:auto} }
+/* Nav: always-visible page tabs */
+.top .wrap{flex-wrap:wrap;row-gap:10px;padding-block:10px}
+.nav{flex-wrap:wrap;gap:6px;order:2}
+.lang{order:3}
+.nav a{
+  padding:7px 14px;border:1px solid var(--line);border-radius:999px;
+  font-size:14.5px;line-height:1.2;color:var(--ink);background:var(--surface);white-space:nowrap;
+  transition:border-color .15s, background .15s, color .15s;
+}
+.nav a:hover{border-color:var(--ink);color:var(--ink)}
+.nav a[aria-current="page"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+@media (max-width:1279px){
+  .lang{order:2;margin-left:auto}
+  .nav{order:3;flex-basis:100%;margin-left:0}
+}
+@media (max-width:640px){
+  .top{position:static}
+  .nav{gap:6px}
+  .nav a{padding:7px 12px;font-size:14px}
+}
+/* Pages */
+[data-page][hidden]{display:none !important}
+main{min-height:calc(100svh - 64px - 97px)}
+.next-page{border-top:1px solid var(--line);padding-block:clamp(40px,6vw,72px)}
+.next-page[hidden]{display:none}
+.next-page a{display:flex;justify-content:space-between;align-items:center;gap:20px;text-decoration:none}
+.next-page .label{display:block;margin-bottom:8px}
+.next-page b{font-family:var(--display);font-weight:400;font-size:clamp(30px,4vw,50px);line-height:1.08;display:block}
+.next-page svg{width:40px;height:40px;color:var(--accent);flex:none;transition:transform .2s}
+.next-page a:hover svg{transform:translateX(6px)}
 
 /* Hero */
 .hero{padding-block:clamp(40px,7vw,88px) clamp(40px,6vw,72px)}
@@ -134,8 +133,23 @@ a{color:inherit}
   font-variation-settings:"opsz" 96;
 }
 .hero h1 em{font-style:italic;color:var(--accent-ink)}
+.first-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:clamp(11.5px,1.2vw,13px);font-weight:500;letter-spacing:.09em;text-transform:uppercase;line-height:1.35;
+  color:var(--accent-ink);background:var(--satin);
+  border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+  padding:9px 16px;border-radius:999px;max-width:100%;
+}
+.first-badge::before{
+  content:"";width:12px;height:12px;flex:none;
+  background:linear-gradient(var(--accent),var(--accent)) center/100% 3px no-repeat,linear-gradient(var(--accent),var(--accent)) center/3px 100% no-repeat;
+}
+.hero .tagline{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(24px,2.7vw,32px);line-height:1.2;margin:28px 0 0;color:var(--accent-ink);
+}
 .hero .lead{
-  font-size:clamp(19px,2vw,22px);line-height:1.45;max-width:30ch;margin:28px 0 0;
+  font-size:clamp(18px,1.8vw,21px);line-height:1.5;max-width:40ch;margin:12px 0 0;color:var(--muted);
 }
 .status{
   display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;
@@ -285,6 +299,7 @@ p{margin:0}
   .who{grid-template-columns:1fr}
   .who article, .who article + article{padding:28px 0;border-left:0;border-bottom:1px solid var(--line)}
 }
+.who .ph{aspect-ratio:4/3;margin-bottom:6px}
 .who .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
 .who p{color:var(--muted)}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;padding:0;list-style:none}
@@ -333,33 +348,75 @@ p{margin:0}
 .split.wide{grid-template-columns:1fr 1fr}
 .split.wide .ph{aspect-ratio:4/3}
 @media (max-width:900px){ .split.wide{grid-template-columns:1fr} }
-.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.4vw,16px)}
+.ph.collage{aspect-ratio:1672/941;border-radius:4px}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,1.4vw,16px)}
 .gallery .ph{aspect-ratio:3/2}
 @media (max-width:700px){
   .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gallery .ph:first-child{grid-column:1 / -1}
 }
 
 /* Services */
-.services{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  margin-top:48px;border-top:1px solid var(--line);border-left:1px solid var(--line);
+.svc{margin-top:48px;display:grid;gap:clamp(16px,2vw,24px)}
+.svc-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  display:flex;flex-direction:column;min-width:0;
 }
-.services article{
-  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  display:flex;flex-direction:column;
-  background:var(--ground);transition:background .2s;
+.svc-card .ph{border-radius:0;aspect-ratio:16/10}
+.svc-body{padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.svc-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+.svc-card h3{font-size:clamp(30px,3.2vw,42px);line-height:1.05}
+.svc-card .desc{color:var(--muted);font-size:16.5px;max-width:64ch}
+.svc-inc{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-top:10px}
+.svc-main{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.svc-main .ph{aspect-ratio:auto;height:100%;min-height:340px}
+@media (max-width:900px){
+  .svc-main{grid-template-columns:minmax(0,1fr)}
+  .svc-main .ph{aspect-ratio:16/10;height:auto;min-height:0}
 }
-.services .ph{border-radius:0;border-bottom:1px solid var(--line)}
-.sv-body{padding:22px 26px 28px;display:flex;flex-direction:column;gap:10px}
-.services article:hover{background:var(--surface)}
-.services p{color:var(--muted);font-size:16px}
-@media (max-width:900px){ .services{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:580px){ .services{grid-template-columns:1fr} }
+.svc-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
+@media (max-width:760px){ .svc-pair{grid-template-columns:minmax(0,1fr)} }
+.svc-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.svc-list li{
+  display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;align-items:start;
+  padding:11px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.45;
+}
+.svc-list li::before{
+  content:"";width:11px;height:11px;margin-top:6px;grid-row:1 / span 2;
+  background:linear-gradient(var(--accent),var(--accent)) center/100% 2.5px no-repeat,linear-gradient(var(--accent),var(--accent)) center/2.5px 100% no-repeat;
+}
+.svc-list li b{font-weight:600;grid-column:2}
+.svc-list li span{grid-column:2;color:var(--muted);font-size:14.5px;line-height:1.45}
+.svc-list.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;border-top:0}
+.svc-list.two li:nth-child(-n+2){border-top:1px solid var(--line)}
+@media (max-width:640px){
+  .svc-list.two{grid-template-columns:minmax(0,1fr)}
+  .svc-list.two li:nth-child(2){border-top:0}
+}
+.svc-cta{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;
+  background:var(--ink);color:var(--ground);border-radius:6px;padding:clamp(24px,3.4vw,40px);
+}
+.svc-cta > div{display:grid;gap:10px;max-width:56ch}
+.svc-cta h3{color:var(--ground)}
+.svc-cta p{color:color-mix(in srgb,var(--ground) 78%,transparent)}
+.svc-cta .btn{background:var(--ground);color:var(--ink);border-color:var(--ground)}
+html[lang="de"] h2, html[lang="de"] h3, html[lang="de"] .topic, html[lang="de"] .readouts .label{hyphens:auto;-webkit-hyphens:auto}
 
 /* About */
 .about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);margin-top:40px}
 @media (max-width:900px){ .about{grid-template-columns:1fr} }
+.about .prose{align-content:start}
+.about-side{display:grid;gap:24px;align-content:start;min-width:0}
+.about-photos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.22fr) minmax(0,1.85fr) minmax(0,.94fr);gap:12px;margin-top:clamp(32px,4vw,48px)}
+.about-photos .ph{height:100%;border-radius:4px}
+.about-photos .ph:first-child{aspect-ratio:4/5}
+.about-photos .ph:nth-child(2){aspect-ratio:1600/901}
+.about-photos .ph:nth-child(3){aspect-ratio:1334/901}
+.about-photos .ph:nth-child(4){aspect-ratio:1050/1400}
+@media (max-width:700px){
+  .about-photos{display:flex;flex-wrap:wrap;gap:8px}
+  .about-photos .ph{height:112px;width:auto;flex:1 1 auto;aspect-ratio:auto !important}
+}
 .cv{list-style:none;margin:0;padding:0}
 .cv li{display:grid;grid-template-columns:1fr;gap:2px;padding:16px 0;border-bottom:1px solid var(--line)}
 .cv li:first-child{border-top:1px solid var(--ink)}
@@ -397,7 +454,7 @@ p{margin:0}
 .notice .state.warn{color:var(--warn)}
 .mail{
   font-family:var(--display);font-size:clamp(26px,3.6vw,44px);line-height:1.1;
-  word-break:break-all;user-select:all;margin:12px 0 20px;
+  overflow-wrap:anywhere;user-select:all;margin:12px 0 20px;
 }
 .copy-state{font-family:var(--mono);font-size:12px;color:var(--ok);min-height:1.2em;margin-top:10px}
 .social{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
@@ -408,18 +465,51 @@ p{margin:0}
 }
 .social a:hover{border-color:var(--ink)}
 .social svg{width:18px;height:18px}
+.social.big a{padding:12px 20px;font-size:16px;background:var(--ground)}
+.social.big svg{width:22px;height:22px}
+.edu-shots{margin-top:clamp(32px,4vw,48px);display:grid;gap:14px}
+.edu-shots-row{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.333fr) minmax(0,.75fr);gap:12px}
+.edu-shots .ph{height:100%;border-radius:4px}
+.edu-past,.edu-sample{margin-top:clamp(32px,4vw,48px);display:grid;gap:14px}
+.edu-past-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:center}
+@media (max-width:760px){ .edu-past-row{grid-template-columns:minmax(0,1fr)} }
+.edu-past .ph,.edu-sample .ph{border:1px solid var(--line);border-radius:4px}
+.events{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.events li{display:grid;gap:4px;padding:16px 0;border-bottom:1px solid var(--line)}
+.events time{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.events b{font-family:var(--display);font-weight:500;font-size:clamp(20px,2vw,24px);line-height:1.2}
+.events span{color:var(--muted);font-size:15px}
+.edu-zoom{display:block;max-width:900px;cursor:zoom-in}
+.edu-hint{font-size:13.5px;color:var(--muted)}
+.soon .social{margin-top:4px;justify-self:stretch}
+@media (max-width:480px){ .social.big a{padding:10px 14px;font-size:15px;gap:8px} .social.big svg{width:20px;height:20px} }
+.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+@media (max-width:520px){ .topics{grid-template-columns:1fr} }
+.topic{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 18px;border:1px solid var(--line);border-radius:6px;background:var(--surface);
+  text-decoration:none;font-weight:500;line-height:1.3;transition:border-color .15s, transform .15s;
+}
+.topic:hover{border-color:var(--ink);transform:translateY(-1px)}
+.topic svg{width:18px;height:18px;flex:none;color:var(--accent)}
+.contact-note{margin-top:14px;font-size:14.5px;color:var(--muted)}
 
 footer{border-top:1px solid var(--line);padding-block:32px}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.foot-logo{display:block;width:150px;height:150px;margin:0 auto 24px;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
 </style>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Aleyna Keyif">
+    <a class="brand-wrap" href="#top" aria-label="Aleyna Keyif">
+      <img class="brand-logo" src="img/logo-sm.png" width="160" height="160" alt="">
+      <span class="brand">
       <b>Aleyna Keyif</b>
       <span data-i18n="brandSub">Fizyoterapist</span>
+    </span>
     </a>
-    <nav class="nav" aria-label="Bölümler">
+    <nav class="nav" id="nav" aria-label="Sayfalar">
+      <a href="#top" data-nav="home" data-i18n="navHome">Ana Sayfa</a>
       <a href="#kimler" data-i18n="navWho">Kimlerle</a>
       <a href="#hizmetler" data-i18n="navServices">Hizmetler</a>
       <a href="#lab" data-i18n="navLab">Hareket Lab</a>
@@ -430,23 +520,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="lang" role="group" aria-label="Dil / Language">
       <button type="button" id="lang-tr" data-lang="tr" aria-pressed="true">TR</button>
       <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" id="lang-de" data-lang="de" aria-pressed="false">DE</button>
     </div>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero" data-page="home">
     <div class="wrap">
       <div>
-        <div class="label" data-i18n="heroEyebrow">Fzt. Aleyna Keyif · Dansçılar, müzisyenler ve sahne sanatçıları için</div>
+        <div class="first-badge" data-i18n="heroBadge">Türkiye’nin ilk performans sanatları fizyoterapisi platformu</div>
         <h1 data-i18n="heroTitle">Performans <em>Sanatları</em> Fizyoterapisi</h1>
-        <p class="lead" data-i18n="heroLead">Performansınızı engelleyen ağrılardan kurtulun, sanatınıza odaklanın!</p>
-        <div class="status">
-          <span class="pill"><span class="dot ok"></span><span data-i18n="pillOnline">Online danışmanlık devam ediyor</span></span>
-          <span class="pill"><span class="dot warn"></span><span data-i18n="pillF2F">Yüz yüze seanslara kısa bir ara verildi</span></span>
-        </div>
+        <p class="tagline" data-i18n="heroTagline">Bilimin performansla buluştuğu yer.</p>
+        <p class="lead" data-i18n="heroLead">Dansçılar ve sahne sanatları profesyonelleri için fizyoterapi, hareket bilimi ve performans odaklı yaklaşımlar.</p>
         <div class="cta-row">
-          <a class="btn" href="#iletisim" data-i18n="ctaBook">Online danışmanlık al</a>
+          <a class="btn" href="#iletisim" data-i18n="ctaBook">İletişime geçin</a>
           <a class="btn ghost" href="#hizmetler" data-i18n="ctaServices">Hizmetleri gör</a>
         </div>
       </div>
@@ -470,15 +558,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
-  <section class="gallery-wrap" aria-label="Galeri" style="padding-block:0 clamp(40px,6vw,72px)">
-    <div class="wrap gallery">
-      <img class="ph" src="img/photos/p17.jpg" width="1400" height="933" style="object-position:44% 49%" data-cx="0.445" data-cy="0.488" alt="Stüdyoda barı tutarak arabesk yapan bir balerin" data-alt-en="A ballerina in arabesque at the barre" loading="lazy">
-      <img class="ph" src="img/photos/p13.jpg" width="1400" height="933" style="object-position:54% 55%" data-cx="0.537" data-cy="0.547" alt="Mat üzerinde dizini göğsüne çekerek esneyen bir dansçı" data-alt-en="A dancer on a mat hugging one knee to her chest" loading="lazy">
+  <section class="gallery-wrap" data-page="home" aria-label="Galeri" style="padding-block:0 clamp(40px,6vw,72px)">
+    <div class="wrap">
+      <img class="ph collage" src="img/photos/n-collage.jpg" width="1672" height="941" alt="Sahne sanatlarından kareler: hip-hop, çağdaş dans, step dansı, Latin dansı, halk dansı, hava akrobasisi, müzikal kulisi ve opera" data-alt-en="Scenes from the performing arts: hip-hop, contemporary dance, tap, Latin dance, folk dance, aerial arts, a musical theatre dressing room and opera" loading="lazy">
+    </div>
+    <div class="wrap gallery" style="margin-top:clamp(8px,1.4vw,16px)">
       <img class="ph" src="img/photos/p12.jpg" width="1400" height="933" style="object-position:57% 45%" data-cx="0.567" data-cy="0.454" alt="Kulis bankında oturmuş, dizini tutan puant ayakkabılı bir balerin" data-alt-en="A ballerina in pointe shoes on a backstage bench, holding her knee" loading="lazy">
+      <img class="ph" src="img/photos/n-folk.jpg" width="1536" height="1024" style="object-position:55% 40%" data-cx="0.55" data-cy="0.4" alt="Sahnede geleneksel kostümleriyle halk dansı yapan bir topluluk" data-alt-en="A folk dance ensemble in traditional costume on stage" loading="lazy">
     </div>
   </section>
 
-  <section class="block" aria-labelledby="m-title">
+  <section class="block" data-page="home" aria-labelledby="m-title">
     <div class="wrap grid">
       <div class="rail"><div class="label" data-i18n="railBody">Beden</div></div>
       <div class="split">
@@ -493,7 +583,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
-  <section class="block" id="kimler" aria-labelledby="who-title">
+  <section class="block" id="kimler" data-page="kimler" aria-labelledby="who-title">
     <div class="wrap grid">
       <div class="rail"><div class="label" data-i18n="railWho">Kimlerle</div></div>
       <div class="split wide">
@@ -502,43 +592,52 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <p class="prose lg" style="margin-top:20px" data-i18n="whoIntro">Disiplin gözetmeksizin, hareketin olduğu her noktada performans sanatları fizyoterapisti aktif rol oynayabilir.</p>
         </div>
         <figure class="photo-fig">
-          <img class="ph" src="img/photos/p19.jpg" width="1400" height="933" style="object-position:50% 48%" data-cx="0.502" data-cy="0.481" alt="Stüdyoda kolları ikinci pozisyonda tendu yapan bir balerin" data-alt-en="A ballerina in tendu with arms in second position" loading="lazy">
+          <img class="ph" src="img/photos/n-duet.jpg" width="1536" height="1024" style="object-position:55% 45%" data-cx="0.55" data-cy="0.45" alt="Sahnede dans eden iki çağdaş dansçı" data-alt-en="Two contemporary dancers performing on stage" loading="lazy">
         </figure>
       </div>
     </div>
     <div class="wrap">
       <div class="who">
         <article>
+          <img class="ph" src="img/photos/n-hiphop.jpg" width="1536" height="1024" style="object-position:52% 38%" data-cx="0.52" data-cy="0.38" alt="Sahne ışıkları altında grupla dans eden bir dansçı" data-alt-en="A dancer performing with a group under stage lights" loading="lazy">
           <span class="kicker" data-i18n="w1k">Hareket profesyonelleri</span>
           <h3 data-i18n="w1t">Dansçılar</h3>
           <p data-i18n="w1p">Bale sanatçılarından modern dansçılara, dans disiplinlerinden halk oyunlarına kadar her türden hareket profesyoneli ile çalışabilir.</p>
           <ul class="tags" aria-label="Dans disiplinleri">
             <li data-i18n="d1">Bale</li>
+            <li data-i18n="d6">Çağdaş dans</li>
             <li data-i18n="d2">Modern dans</li>
-            <li>Hip-hop</li>
             <li>Jazz</li>
+            <li>Hip-hop</li>
+            <li>Breaking</li>
+            <li data-i18n="d8">Step dansı</li>
+            <li data-i18n="d9">Flamenko</li>
+            <li>Tango</li>
+            <li data-i18n="d10">Balo dansları (Standart &amp; Latin)</li>
             <li data-i18n="d3">Latin (Salsa, Bachata)</li>
             <li>Lindy Hop</li>
-            <li>Tango</li>
             <li data-i18n="d4">Oryantal</li>
             <li data-i18n="d5">Halk oyunları</li>
+            <li data-i18n="d11">Hava akrobasisi</li>
           </ul>
         </article>
         <article>
+          <img class="ph" src="img/photos/n-singer.jpg" width="1536" height="1024" style="object-position:50% 40%" data-cx="0.5" data-cy="0.4" alt="Orkestra eşliğinde mikrofonla şarkı söyleyen bir şarkıcı" data-alt-en="A singer performing at a microphone with an orchestra" loading="lazy">
           <span class="kicker" data-i18n="w2k">Enstrüman ve ses</span>
           <h3 data-i18n="w2t">Müzisyenler ve Şarkıcılar</h3>
           <p data-i18n="w2p">Enstrüman çalarken oluşan postür bozuklukları, tekrarlayıcı stres yaralanmaları ve diyafram/ses performansını destekleyici mobilite çalışmaları ile sanatçıların performans hayatlarına destek olur.</p>
         </article>
         <article>
+          <img class="ph" src="img/photos/n-backstage.jpg" width="1536" height="1024" style="object-position:36% 55%" data-cx="0.36" data-cy="0.55" alt="Kulis: ışıklı makyaj aynası, kostümler ve arka planda sahnedeki gösteri" data-alt-en="Backstage: a lit dressing-room mirror, costumes and a show on stage in the background" loading="lazy">
           <span class="kicker" data-i18n="w3k">Şarkı, dans, oyunculuk</span>
-          <h3 data-i18n="w3t">Müzikal Tiyatro Sanatçıları</h3>
-          <p data-i18n="w3p">Aynı anda hem şarkı söyleyen, hem dans eden, hem de oyunculuk yapan sanatçıların ihtiyaç duyduğu bütüncül fiziksel kondisyonu sanatçı için kontrollü şekilde sağlar.</p>
+          <h3 data-i18n="w3t">Müzikal Tiyatro Sanatçıları ve Oyuncular</h3>
+          <p data-i18n="w3p">Aynı anda şarkı söyleyip dans eden müzikal sanatçılarından tiyatro, sinema ve dizi oyuncularına; sahne dövüşü, düşmeler, fiziksel tiyatro, uzun prova ve çekim saatleri ile postür ve nefes kontrolü gibi ihtiyaçlara yönelik bütüncül ve kontrollü bir fiziksel hazırlık sağlar.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="block" aria-labelledby="why-title">
+  <section class="block" data-page="home" aria-labelledby="why-title">
     <div class="wrap">
       <div class="first">
         <span class="mark" aria-hidden="true" data-i18n="firstMark">İlk</span>
@@ -549,7 +648,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <p data-i18n="why1">Dansçılar ve diğer performans sanatçıları, sporculara benzer şekilde yüksek fiziksel yüklenmelere maruz kalırlar. Uzun prova saatleri, tekrarlayan hareketler ve performans sırasında ortaya çıkan yüksek biyomekanik yüklenmeler; kas-iskelet sistemi üzerinde önemli bir stres oluşturabilir.</p>
           <p data-i18n="why2">Performans sanatlarına özel fizyoterapi yaklaşımları, sanatçının hareket repertuvarını, performans ihtiyaçlarını ve fiziksel yüklenmelerini dikkate alarak planlanır.</p>
           <figure class="photo-fig">
-          <img class="ph" src="img/photos/p21.jpg" width="1400" height="933" style="object-position:46% 50%" data-cx="0.458" data-cy="0.501" alt="Sahne provasında arabesk yapan bir balerin" data-alt-en="A ballerina in arabesque during a stage rehearsal" loading="lazy">
+          <img class="ph" src="img/photos/n-ankle-tape.jpg" width="1536" height="1024" style="object-position:45% 50%" data-cx="0.45" data-cy="0.5" alt="Kuliste ayak bileğini bantlayan bir balerin" data-alt-en="A ballerina taping her ankle backstage" loading="lazy">
         </figure>
         </div>
         <div>
@@ -568,63 +667,81 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
-  <section class="block" id="hizmetler" aria-labelledby="svc-title">
+  <section class="block" id="hizmetler" data-page="hizmetler" aria-labelledby="svc-title">
     <div class="wrap grid">
       <div class="rail"><div class="label" data-i18n="railServices">Hizmetler</div></div>
       <div>
         <h2 id="svc-title" data-i18n="svcTitle">Prova salonundan <em>sahneye</em> kadar</h2>
+        <p class="prose lg" style="margin-top:20px" data-i18n="svIntro">Klinikte üç ana hizmet sunuyoruz. Her biri performans sanatçısının bedenini, repertuvarını ve sahne takvimini merkeze alarak, kişiye özel planlanır.</p>
       </div>
     </div>
     <div class="wrap">
-      <div class="services">
-        <article>
-          <img class="ph" src="img/photos/p16.jpg" width="1400" height="933" style="object-position:48% 48%" data-cx="0.482" data-cy="0.476" alt="Direnç bandıyla ayak bileği egzersizi yapan bir dansçı" data-alt-en="A dancer doing an ankle exercise with a resistance band" loading="lazy">
-          <div class="sv-body">
-          <h3 data-i18n="sv1t">Yaralanma Önleme Programları</h3>
-          <p data-i18n="sv1p">Repertuvarınıza ve prova yükünüze göre planlanan, riskli bölgeleri önceden güçlendiren programlar.</p>
+      <div class="svc">
+        <article class="svc-card svc-main">
+          <img class="ph" src="img/photos/n-shoulder-tape.jpg" width="1672" height="941" style="object-position:40% 45%" data-cx="0.4" data-cy="0.45" alt="Kulis aynası önünde bir sanatçının omzuna bant uygulanması" data-alt-en="Taping a performer’s shoulder in front of a dressing-room mirror" loading="lazy">
+          <div class="svc-body">
+            <span class="svc-kicker" data-i18n="sp1k">01 · Fizyoterapi</span>
+            <h3 data-i18n="sp1t">Fizik Tedavi</h3>
+            <p class="desc" data-i18n="sp1p">Performans sanatçısının bedenine ve repertuvarına özel planlanan fizik tedavi süreci. Detaylı bir değerlendirmeyle başlar; ağrının ya da kısıtlılığın kaynağı belirlenir ve prova ile sahne takviminize uygun bir tedavi planı oluşturulur. Amaç yalnızca ağrıyı gidermek değil, sizi sahneye güvenle ve daha güçlü şekilde döndürmektir.</p>
+            <span class="svc-inc" data-i18n="spInc">Fizik tedavi kapsamında</span>
+            <ul class="svc-list two">
+              <li data-i18n="sp1i1"><b>Değerlendirme ve hareket analizi</b><span>Sahnede ve enstrüman başında hareket paternleri, postür ve yüklenmelerin incelenmesi.</span></li>
+              <li data-i18n="sp1i2"><b>Manuel terapi</b><span>Kas ve eklem kısıtlılıklarına yönelik, elle uygulanan tedavi teknikleri.</span></li>
+              <li data-i18n="sp1i3"><b>Yaralanma rehabilitasyonu</b><span>Dans ve performans yaralanmalarında, sahneye güvenli dönüşe kadar kademeli süreç.</span></li>
+              <li data-i18n="sp1i4"><b>Yaralanma önleme programları</b><span>Repertuvar ve prova yüküne göre riskli bölgelerin önceden güçlendirilmesi.</span></li>
+              <li data-i18n="sp1i5"><b>Stabilite ve mobilite çalışmaları</b><span>İstenen hareket açıklığına kontrol ve güvenle ulaşmak için egzersizler.</span></li>
+              <li data-i18n="sp1i6"><b>Performansa özel egzersiz ve kondisyon</b><span>Kuvvet, dayanıklılık ve kondisyonun disiplininizin taleplerine göre geliştirilmesi.</span></li>
+            </ul>
           </div>
         </article>
-        <article>
-          <img class="ph" src="img/photos/p24.jpg" width="1400" height="933" style="object-position:53% 42%" data-cx="0.528" data-cy="0.419" alt="Kulis zemininde oturmuş, baldırını tutan bir dansçı" data-alt-en="A dancer sitting on the backstage floor, holding her calf" loading="lazy">
-          <div class="sv-body">
-          <h3 data-i18n="sv2t">Manuel Terapi</h3>
-          <p data-i18n="sv2p">Kas ve eklem kısıtlılıklarına yönelik, elle uygulanan tedavi teknikleri.</p>
+        <div class="svc-pair">
+          <article class="svc-card">
+            <img class="ph" src="img/photos/p11.jpg" width="1400" height="933" style="object-position:50% 52%" data-cx="0.504" data-cy="0.515" alt="Mat üzerinde köprü egzersizi yapan bir dansçı" data-alt-en="A dancer doing a glute bridge on a mat" loading="lazy">
+            <div class="svc-body">
+              <span class="svc-kicker" data-i18n="sp2k">02 · Pilates</span>
+              <h3 data-i18n="sp2t">Birebir Pilates</h3>
+              <p class="desc" data-i18n="sp2p">Tamamen size ayrılan, fizyoterapist eşliğinde yapılan pilates seansları. Program; bedeninizin ihtiyaçlarına, varsa geçmiş yaralanmalarınıza ve hedeflerinize göre kişiye özel hazırlanır. Her seansta hareket kalitesi yakından takip edilir ve egzersizler ilerlemenize göre güncellenir.</p>
+              <span class="svc-inc" data-i18n="spFocus">Odak noktaları</span>
+              <ul class="svc-list">
+                <li data-i18n="sp2i1">Merkez (core) kuvveti ve vücut kontrolü</li>
+                <li data-i18n="sp2i2">Postür ve hizalanmanın geliştirilmesi</li>
+                <li data-i18n="sp2i3">Esneklik ve eklem hareketliliği</li>
+                <li data-i18n="sp2i4">Nefes ve hareket koordinasyonu</li>
+                <li data-i18n="sp2i5">Yaralanma sonrası güvenli egzersize dönüş</li>
+              </ul>
+            </div>
+          </article>
+          <article class="svc-card">
+            <img class="ph" src="img/photos/p16.jpg" width="1400" height="933" style="object-position:48% 48%" data-cx="0.482" data-cy="0.476" alt="Direnç bandıyla ayak bileği egzersizi yapan bir dansçı" data-alt-en="A dancer doing an ankle exercise with a resistance band" loading="lazy">
+            <div class="svc-body">
+              <span class="svc-kicker" data-i18n="sp3k">03 · Tüm sahne sanatçıları için</span>
+              <h3 data-i18n="sp3t">Performans Odaklı Egzersiz</h3>
+              <p class="desc" data-i18n="sp3p">Sanatçının disiplinine ve sahnenin fiziksel taleplerine göre planlanan egzersiz çalışması. Dansçı, müzisyen, şarkıcı, oyuncu ya da müzikal tiyatro sanatçısı; her disiplinin bedenden beklediği farklıdır. Program, sanatınızın gerektirdiği kuvvet, dayanıklılık, kontrol ve hareketliliği hedefler; performansınızı desteklerken yaralanma riskini azaltır.</p>
+              <span class="svc-inc" data-i18n="spFocus">Odak noktaları</span>
+              <ul class="svc-list">
+                <li data-i18n="sp3i1">Disipline özel kuvvet ve dayanıklılık</li>
+                <li data-i18n="sp3i2">Postür, denge ve vücut kontrolü</li>
+                <li data-i18n="sp3i3">Kontrollü esneklik ve hareket açıklığı</li>
+                <li data-i18n="sp3i4">Uzun prova ve sahne sürelerine karşı kondisyon</li>
+                <li data-i18n="sp3i5">Repertuvara ve sezon dönemine göre planlama</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <div class="svc-cta">
+          <div>
+            <span class="label" style="color:inherit;opacity:.75" data-i18n="svCtaK">Size uygun program</span>
+            <h3 data-i18n="svCtaT">Hangi hizmetin size uygun olduğundan emin değil misiniz?</h3>
+            <p data-i18n="svCtaP">Kısaca durumunuzu yazın, birlikte en doğru yolu belirleyelim.</p>
           </div>
-        </article>
-        <article>
-          <img class="ph" src="img/photos/p14.jpg" width="1400" height="933" style="object-position:52% 48%" data-cx="0.516" data-cy="0.477" alt="Bale barında relevé pozisyonunda duran bir dansçı" data-alt-en="A dancer in relevé at the barre" loading="lazy">
-          <div class="sv-body">
-          <h3 data-i18n="sv3t">Hareket Analizi ve Postür Değerlendirmesi</h3>
-          <p data-i18n="sv3p">Sahnede ve enstrüman başında hareket paternlerinizin, postürünüzün ve yüklenmelerinizin değerlendirilmesi.</p>
-          </div>
-        </article>
-        <article>
-          <img class="ph" src="img/photos/p11.jpg" width="1400" height="933" style="object-position:50% 52%" data-cx="0.504" data-cy="0.515" alt="Mat üzerinde köprü egzersizi yapan bir dansçı" data-alt-en="A dancer doing a glute bridge on a mat" loading="lazy">
-          <div class="sv-body">
-          <h3 data-i18n="sv4t">Performans Geliştirme ve Kondisyon Programları</h3>
-          <p data-i18n="sv4p">Kuvvet, dayanıklılık ve kondisyonu sanatınızın taleplerine göre geliştiren çalışmalar.</p>
-          </div>
-        </article>
-        <article>
-          <img class="ph" src="img/photos/p15.jpg" width="1400" height="933" style="object-position:55% 48%" data-cx="0.547" data-cy="0.477" alt="Barı tutarak passé pozisyonunda dengede duran bir dansçı" data-alt-en="A dancer balancing in passé while holding the barre" loading="lazy">
-          <div class="sv-body">
-          <h3 data-i18n="sv5t">Fonksiyonel Stabilite ve Mobilite Çalışmaları</h3>
-          <p data-i18n="sv5p">İstenilen hareket açıklığına kontrol ve güvenle ulaşmanızı sağlayan stabilite ve mobilite egzersizleri.</p>
-          </div>
-        </article>
-        <article>
-          <img class="ph" src="img/photos/p20.jpg" width="1400" height="933" style="object-position:41% 49%" data-cx="0.406" data-cy="0.486" alt="Kuliste oturmuş, ağrıyan dizini tutan bir dansçı" data-alt-en="A dancer sitting backstage, holding a painful knee" loading="lazy">
-          <div class="sv-body">
-          <h3 data-i18n="sv6t">Dans Yaralanmaları Rehabilitasyonu</h3>
-          <p data-i18n="sv6p">Yaralanma sonrası, sahneye güvenli dönüşe kadar kademeli olarak planlanan rehabilitasyon süreci.</p>
-          </div>
-        </article>
+          <a class="btn" href="#iletisim" data-i18n="svCtaB">İletişime geçin</a>
+        </div>
       </div>
     </div>
   </section>
 
 
-  <section class="block" id="lab" aria-labelledby="lab-title">
+  <section class="block" id="lab" data-page="lab" aria-labelledby="lab-title">
     <div class="wrap grid">
       <div class="rail"><div class="label" data-i18n="railLab">Hareket Lab</div></div>
       <div>
@@ -662,69 +779,112 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
-  <section class="block" id="hakkimda" aria-labelledby="about-title">
+  <section class="block" id="hakkimda" data-page="hakkimda" aria-labelledby="about-title">
     <div class="wrap grid">
       <div class="rail"><div class="label" data-i18n="railAbout">Hakkımda</div></div>
       <div>
         <h2 id="about-title">Fzt. Aleyna Keyif</h2>
         <div class="about">
           <div class="prose">
-            <p data-i18n="a1">Aleyna Keyif, Beşiktaş Anadolu Lisesi’nde eğitim aldıktan sonra Bilgi Üniversitesi Fizyoterapi ve Rehabilitasyon Bölümü’nü ve Bilgi Üniversitesi Performans ve Gösteri Sanatları – Performans Sanatları Bölümü’nü (minör) tam burslu şekilde bitirmiştir.</p>
+            <p data-i18n="a1">Aleyna Keyif, Bilgi Üniversitesi Fizyoterapi ve Rehabilitasyon Bölümü’nü ve Bilgi Üniversitesi Performans ve Gösteri Sanatları – Performans Sanatları Bölümü’nü (minör) tam burslu şekilde bitirmiştir.</p>
             <p data-i18n="a2">Bu yıllarda Bilgi Müzikal topluluğu çatısı altında yaptığı gösteriler Zorlu Performans Sanatları Sahnesi’nde sahnelenmiş; ilk performans sanatları fizyoterapistliği adımları bu zamanlarda atılmıştır.</p>
             <p data-i18n="a3">Baps Academy Pilates sertifikası bulunan Aleyna Keyif, tüm deneyimlerini performans sanatları alanında çalışmaya yoğunlaştırdığı için sahnenin getirdiği fiziksel gereksinimleri anlama ve sanatçıların güvenli bir şekilde performans yapabilmeleri konusunda uzmandır.</p>
             <div class="stage-note">
               <span class="label" data-i18n="nowLabel">Şu anda</span>
-              <p data-i18n="a4">Eğitimine Almanya’da devam etmektedir. Yüz yüze seanslar kısa süreliğine durdurulmuş olup online danışmanlık seansları devam etmektedir.</p>
+              <p data-i18n="a4">Eğitimine Almanya’da devam etmektedir.</p>
             </div>
           </div>
-          <ul class="cv" aria-label="Eğitim ve deneyim">
+          <div class="about-side">
+            <ul class="cv" aria-label="Eğitim ve deneyim">
             <li><span class="tag" data-i18n="cv1t">Lisans · Tam burslu</span><span class="where" data-i18n="cv1w">Bilgi Üniversitesi</span><span class="what" data-i18n="cv1d">Fizyoterapi ve Rehabilitasyon</span></li>
             <li><span class="tag" data-i18n="cv2t">Minör · Tam burslu</span><span class="where" data-i18n="cv2w">Bilgi Üniversitesi</span><span class="what" data-i18n="cv2d">Performans ve Gösteri Sanatları – Performans Sanatları</span></li>
             <li><span class="tag" data-i18n="cv3t">Sahne · 2018</span><span class="where" data-i18n="cv3w">Zorlu Performans Sanatları Merkezi, İstanbul</span><span class="what" data-i18n="cv3d">Bilgi Müzikal topluluğu gösterileri</span></li>
             <li><span class="tag" data-i18n="cv4t">Sertifika</span><span class="where">Baps Academy</span><span class="what" data-i18n="cv4d">Pilates</span></li>
-            <li><span class="tag" data-i18n="cv5t">Lise</span><span class="where" data-i18n="cv5w">Beşiktaş Anadolu Lisesi</span></li>
             <li><span class="tag" data-i18n="cv6t">Devam ediyor</span><span class="where" data-i18n="cv6w">Almanya</span><span class="what" data-i18n="cv6d">Eğitimine devam ediyor</span></li>
           </ul>
+          </div>
         </div>
+        <div class="about-photos">
+              <img class="ph" src="img/photos/aleyna-portrait.jpg" width="900" height="1125" alt="Fzt. Aleyna Keyif" data-alt-en="Pt. Aleyna Keyif" loading="lazy">
+              <img class="ph" src="img/photos/aleyna-wembley.jpg" width="1600" height="901" alt="Fzt. Aleyna Keyif, OVO Arena Wembley kulisinde" data-alt-en="Pt. Aleyna Keyif backstage at OVO Arena Wembley" loading="lazy">
+              <img class="ph" src="img/photos/aleyna-backstage.jpg" width="1334" height="901" alt="Kostüm askıları arasında, kuliste iki sanatçı" data-alt-en="Two performers backstage among costume racks" loading="lazy">
+              <img class="ph" src="img/photos/aleyna-concert.jpg" width="1050" height="1400" alt="Fzt. Aleyna Keyif, ekip fizyoterapisti olarak görev aldığı Manifest konserinin kulisinde" data-alt-en="Pt. Aleyna Keyif backstage at a Manifest concert, where she worked as the team physiotherapist" loading="lazy">
+            </div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="egitim" aria-labelledby="edu-title">
+  <section class="block" id="egitim" data-page="egitim" aria-labelledby="edu-title">
     <div class="wrap grid">
       <div class="rail"><div class="label" data-i18n="railEdu">Eğitim</div></div>
       <div>
         <h2 id="edu-title" data-i18n="eduTitle">Eğitim &amp; Workshoplar</h2>
         <div class="soon">
-          <img class="ph" src="img/photos/p18.jpg" width="1400" height="933" style="object-position:55% 47%" data-cx="0.545" data-cy="0.47" alt="Yerde oturarak yana esneme yapan bir dansçı" data-alt-en="A dancer doing a seated side stretch" loading="lazy">
+          <img class="ph" src="img/photos/seminar-wide.jpg" width="1400" height="1050" style="object-position:40% 50%" data-cx="0.4" data-cy="0.5" alt="Fzt. Aleyna Keyif, “Performans Sanatları Fizyoterapisi” seminerinde konuşurken" data-alt-en="Pt. Aleyna Keyif speaking at a “Performing Arts Physiotherapy” seminar" loading="lazy">
           <div class="soon-text">
-            <p data-i18n="eduText">Sizin için çalışmalarımız devam etmektedir.</p>
-            <span class="pill"><span class="dot warn"></span><span data-i18n="eduPill">Hazırlanıyor</span></span>
+            <span class="pill"><span class="dot ok"></span><span data-i18n="eduPill">Yakında</span></span>
+            <p data-i18n="eduText">Eğitim ve bilimsel etkinliklerden haberdar olmak için takipte kalın.</p>
+            <div class="social big">
+              <a href="https://www.instagram.com/aleynakucukkeyif/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                Instagram
+              </a>
+              <a href="https://youtube.com/@aleynakeyif" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg>
+                YouTube
+              </a>
+              <a href="https://www.linkedin.com/in/aleyna-keyif-62993b1b4/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-2 1.3-3 2.7-3S17 11.5 17 13.5V17"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="edu-past">
+          <span class="label" data-i18n="eduPastK">Geçmiş eğitimler</span>
+          <div class="edu-past-row">
+            <img class="ph" style="aspect-ratio:1440/790" src="img/photos/edu-cover.jpg" width="1440" height="790" alt="Fzt. Aleyna Keyif’in “Performans Sanatları Fizyoterapisi” sunumunun kapak sayfası" data-alt-en="Title slide of the “Performing Arts Physiotherapy” presentation by Pt. Aleyna Keyif" loading="lazy">
+            <ol class="events">
+              <li><time datetime="2026-11-04" data-i18n="ev1d">04 Kasım 2026</time><b data-i18n="ev1t">Performans Sanatlarında Fizyoterapi ve Rehabilitasyon</b><span data-i18n="ev1p">Atlas Üniversitesi</span></li>
+              <li><time datetime="2026-04-26" data-i18n="ev2d">26 Nisan 2026</time><b data-i18n="ev2t">Performans Sanatlarında Fizyoterapi Semineri: Sahne Arkasındaki Bilim</b><span data-i18n="ev2p">Bilgi Üniversitesi</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="edu-shots">
+          <span class="label" data-i18n="eduShotsK">Seminerlerden kareler</span>
+          <div class="edu-shots-row">
+            <img class="ph" style="aspect-ratio:1050/1400" src="img/photos/seminar-1.jpg" width="1050" height="1400" alt="Fzt. Aleyna Keyif, “Performans Sanatları Fizyoterapisi” seminerinde konuşurken" data-alt-en="Pt. Aleyna Keyif speaking at a “Performing Arts Physiotherapy” seminar" loading="lazy">
+            <img class="ph" style="aspect-ratio:1400/1050" src="img/photos/seminar-2.jpg" width="1400" height="1050" alt="Fzt. Aleyna Keyif, “Performans Sanatları Fizyoterapisi” seminerinde konuşurken" data-alt-en="Pt. Aleyna Keyif speaking at a “Performing Arts Physiotherapy” seminar" loading="lazy">
+            <img class="ph" style="aspect-ratio:1050/1400" src="img/photos/seminar-3.jpg" width="1050" height="1400" alt="Fzt. Aleyna Keyif, “Performans Sanatları Fizyoterapisi” seminerinde konuşurken" data-alt-en="Pt. Aleyna Keyif speaking at a “Performing Arts Physiotherapy” seminar" loading="lazy">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="iletisim" aria-labelledby="contact-title">
+  <section class="block" id="iletisim" data-page="iletisim" aria-labelledby="contact-title">
     <div class="wrap grid">
       <div class="rail"><div class="label" data-i18n="railContact">İletişim</div></div>
       <div>
-        <h2 id="contact-title" data-i18n="contactTitle">Online danışmanlık için <em>yazın</em></h2>
+        <h2 id="contact-title" data-i18n="contactTitle">Bize <em>yazın</em></h2>
         <div class="contact">
           <div>
-            <p class="prose lg" data-i18n="contactText">Kısa bir süreliğine yüz yüze seanslarımız durdurulmuştur. Online danışmanlık için e-posta üzerinden iletişime geçebilirsiniz.</p>
-            <div class="notice" style="margin-top:24px">
-              <div class="row"><span><span class="dot ok"></span><span data-i18n="nOnline">Online danışmanlık</span></span><span class="state ok" data-i18n="nOnlineS">Devam ediyor</span></div>
-              <div class="row"><span><span class="dot warn"></span><span data-i18n="nF2F">Yüz yüze seanslar</span></span><span class="state warn" data-i18n="nF2FS">Kısa süreliğine durduruldu</span></div>
+            <p class="prose lg" data-i18n="contactText">Tüm talepleriniz için e-posta ile ulaşabilirsiniz. Konunuzu seçin; e-postanız konu başlığı hazır şekilde açılsın.</p>
+            <div class="topics" id="topics">
+              <a class="topic" data-topic="tSession" href="mailto:keyifaleyna@gmail.com?subject=Seans%20talebi"><span data-i18n="tSession">Seans talebi</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="topic" data-topic="tInfo" href="mailto:keyifaleyna@gmail.com?subject=Bilgi%20talebi"><span data-i18n="tInfo">Bilgi almak</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="topic" data-topic="tConsult" href="mailto:keyifaleyna@gmail.com?subject=Dan%C4%B1%C5%9Fmanl%C4%B1k%20ba%C5%9Fvurusu"><span data-i18n="tConsult">Danışmanlık başvurusu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="topic" data-topic="tCorp" href="mailto:keyifaleyna@gmail.com?subject=Kurumsal%20i%C5%9F%20birli%C4%9Fi"><span data-i18n="tCorp">Kurumsal iş birliği</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="topic" data-topic="tEdu" href="mailto:keyifaleyna@gmail.com?subject=E%C4%9Fitim%20ve%20workshop"><span data-i18n="tEdu">Eğitim ve workshop</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="topic" data-topic="tPress" href="mailto:keyifaleyna@gmail.com?subject=Bas%C4%B1n%20ve%20di%C4%9Fer%20ileti%C5%9Fimler"><span data-i18n="tPress">Basın ve diğer iletişimler</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
           <div>
             <span class="label" data-i18n="emailLabel">E-posta</span>
-            <p class="mail" id="mail">keyifaleyna@gmail.com</p>
+            <p class="mail" id="mail">keyifaleyna<wbr>@gmail.com</p>
             <div class="cta-row" style="margin-top:0">
               <button type="button" class="btn" id="copy" data-i18n="copy">Adresi kopyala</button>
-              <a class="btn ghost" href="mailto:keyifaleyna@gmail.com?subject=Online%20dan%C4%B1%C5%9Fmanl%C4%B1k" data-i18n="mailto">E-posta uygulamasında aç</a>
+              <a class="btn ghost" href="mailto:keyifaleyna@gmail.com" data-i18n="mailto">E-posta uygulamasında aç</a>
             </div>
             <div class="copy-state" id="copy-state" aria-live="polite"></div>
             <div class="social">
@@ -746,11 +906,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </div>
     </div>
   </section>
+
+  <div class="next-page" id="next-page" hidden>
+    <div class="wrap">
+      <a href="#top" id="next-link">
+        <span><span class="label" data-i18n="nextLabel">Sonraki sayfa</span><b id="next-name"></b></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
 </main>
 
 <footer>
+  <img class="foot-logo" src="img/logo.png" width="600" height="600" alt="Performing Arts Physiotherapy amblemi" data-alt-en="Performing Arts Physiotherapy emblem" loading="lazy">
   <div class="wrap">
-    <span class="label">© Aleyna Keyif · performingartsphysiotherapy.com</span>
+    <span class="label">© Aleyna Keyif · <span lang="en">performingartsphysiotherapy.com</span></span>
     <span class="label" data-i18n="footer">Performans Sanatları Fizyoterapisi</span>
   </div>
 </footer>
@@ -761,12 +931,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   const EN = {
     brandSub:"Physiotherapist",
     navLab:"Movement Lab",
+    navHome:"Home", nextLabel:"Next page",
     navWho:"Who it’s for", navServices:"Services", navAbout:"About", navEdu:"Education &amp; Workshops", navContact:"Contact",
     heroEyebrow:"Pt. Aleyna Keyif · For dancers, musicians and stage performers",
     heroTitle:"Performing <em>Arts</em> Physiotherapy",
-    heroLead:"Get free of the pain that holds your performance back, and focus on your art.",
+    heroBadge:"Turkey’s first performing arts physiotherapy platform",
+    heroTagline:"Where science meets performance.",
+    heroLead:"Physiotherapy, movement science and performance-focused approaches for dancers and performing arts professionals.",
     pillOnline:"Online consultations continue", pillF2F:"In-person sessions briefly paused",
-    ctaBook:"Book an online consultation", ctaServices:"See services",
+    ctaBook:"Get in touch", ctaServices:"See services",
+    svCtaK:"The right programme", svCtaT:"Not sure which service is right for you?",
+    svCtaP:"Tell us briefly about your situation and we’ll find the best path together.", svCtaB:"Get in touch",
+    tSession:"Session request", tInfo:"General information", tConsult:"Consultancy application",
+    tCorp:"Corporate partnership", tEdu:"Education and workshops", tPress:"Press and other enquiries",
     labTitle:"Movement analysis", pause:"Pause", play:"Play",
     rKnee:"Knee flexion", rHip:"Trunk–thigh angle", rTrunk:"Trunk lean",
     labCaption:"Knee, hip and trunk angles through preparation, lunge, arabesque and relevé.",
@@ -778,11 +955,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     whoIntro:"Whatever the discipline, wherever there is movement, a performing arts physiotherapist can play an active role.",
     w1k:"Movement professionals", w1t:"Dancers",
     w1p:"From ballet artists to contemporary dancers, from social dance styles to folk dance: every kind of movement professional.",
-    d1:"Ballet", d2:"Contemporary", d3:"Latin (Salsa, Bachata)", d4:"Belly dance", d5:"Folk dance",
+    d1:"Ballet", d2:"Modern dance", d3:"Latin (Salsa, Bachata)", d4:"Belly dance", d5:"Folk dance",
+    d6:"Contemporary dance", d8:"Tap dance", d9:"Flamenco", d10:"Ballroom (Standard &amp; Latin)", d11:"Aerial arts",
     w2k:"Instrument and voice", w2t:"Musicians and Singers",
     w2p:"Support for postural problems that develop while playing, repetitive strain injuries, and mobility work that supports the diaphragm and vocal performance.",
-    w3k:"Singing, dancing, acting", w3t:"Musical Theatre Performers",
-    w3p:"A controlled path to the all-round physical conditioning needed by artists who sing, dance and act at the same time.",
+    w3k:"Singing, dancing, acting", w3t:"Musical Theatre Performers and Actors",
+    w3p:"From musical theatre performers who sing and dance at once to stage, film and TV actors: controlled, all-round physical preparation for stage combat, falls, physical theatre, long rehearsal and shooting days, posture and breath control.",
     firstMark:"1st",
     first:"The first physiotherapist in Turkey trained in both the performing arts and physiotherapy.",
     why1:"Dancers and other performing artists face physical loads similar to athletes. Long rehearsal hours, repetitive movement and the high biomechanical loads of performance can put significant stress on the musculoskeletal system.",
@@ -793,34 +971,48 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     scopeOutro:"and many other important processes.",
     railServices:"Services",
     svcTitle:"From the rehearsal room <em>to the stage</em>",
-    sv1t:"Injury Prevention Programmes", sv1p:"Programmes built around your repertoire and rehearsal load that strengthen vulnerable areas before problems start.",
-    sv2t:"Manual Therapy", sv2p:"Hands-on treatment techniques for muscle and joint restrictions.",
-    sv3t:"Movement Analysis and Posture Assessment", sv3p:"An assessment of your movement patterns, posture and loading, on stage and at your instrument.",
-    sv4t:"Performance and Conditioning Programmes", sv4p:"Strength, endurance and conditioning work shaped by the demands of your art.",
-    sv5t:"Functional Stability and Mobility", sv5p:"Stability and mobility exercises that help you reach the range you want with control and confidence.",
-    sv6t:"Dance Injury Rehabilitation", sv6p:"A step-by-step rehabilitation plan from injury to a safe return to the stage.",
+    svIntro:"We offer three core services at the clinic. Each one is planned individually, around the performing artist’s body, repertoire and stage calendar.",
+    spInc:"Physiotherapy includes", spFocus:"Focus areas",
+    sp1k:"01 · Physiotherapy", sp1t:"Physiotherapy",
+    sp1p:"A physiotherapy process designed around the performing artist’s body and repertoire. It starts with a detailed assessment to find the source of pain or restriction, followed by a treatment plan that fits your rehearsal and performance schedule. The goal is not only to relieve pain, but to bring you back to the stage safely and stronger.",
+    sp1i1:"<b>Assessment and movement analysis</b><span>A look at your movement patterns, posture and loading, on stage and at your instrument.</span>",
+    sp1i2:"<b>Manual therapy</b><span>Hands-on treatment techniques for muscle and joint restrictions.</span>",
+    sp1i3:"<b>Injury rehabilitation</b><span>A step-by-step process for dance and performance injuries, through to a safe return to the stage.</span>",
+    sp1i4:"<b>Injury prevention programmes</b><span>Strengthening vulnerable areas in advance, based on your repertoire and rehearsal load.</span>",
+    sp1i5:"<b>Stability and mobility work</b><span>Exercises to reach the range you want with control and confidence.</span>",
+    sp1i6:"<b>Performance-specific exercise and conditioning</b><span>Building strength, endurance and conditioning for the demands of your discipline.</span>",
+    sp2k:"02 · Pilates", sp2t:"One-to-One Pilates",
+    sp2p:"Pilates sessions dedicated entirely to you and led by a physiotherapist. Your programme is built around your body’s needs, any past injuries and your goals. Movement quality is followed closely in every session, and exercises are updated as you progress.",
+    sp2i1:"Core strength and body control", sp2i2:"Better posture and alignment", sp2i3:"Flexibility and joint mobility",
+    sp2i4:"Breath and movement coordination", sp2i5:"A safe return to exercise after injury",
+    sp3k:"03 · For all performers", sp3t:"Performance-Focused Exercise",
+    sp3p:"Exercise planned around your discipline and the physical demands of the stage. Dancers, musicians, singers, actors and musical theatre performers each ask something different of the body. Your programme targets the strength, endurance, control and mobility your art requires, supporting your performance while lowering injury risk.",
+    sp3i1:"Discipline-specific strength and endurance", sp3i2:"Posture, balance and body control", sp3i3:"Controlled flexibility and range of motion",
+    sp3i4:"Conditioning for long rehearsals and performances", sp3i5:"Planning around repertoire and season",
     railLab:"Movement Lab",
     labH2:"Pick a move and watch its <em>analysis</em>",
     labIntro:"Each move is animated step by step while the knee, hip, trunk and ankle angles are measured live. Values come from a representative body model.",
     rAnkle:"Ankle", rHipH:"Hip height", watchLabel:"What the physio watches",
     legend:"Ankle: + plantarflexion, − dorsiflexion. Trunk lean: + forward, − back.",
     railAbout:"About",
-    a1:"After Beşiktaş Anatolian High School, Aleyna Keyif graduated with a full scholarship from Bilgi University’s Physiotherapy and Rehabilitation department, with a minor in Performing and Visual Arts – Performing Arts, also at Bilgi University.",
+    a1:"Aleyna Keyif graduated with a full scholarship from Bilgi University’s Physiotherapy and Rehabilitation department, with a minor in Performing and Visual Arts – Performing Arts, also at Bilgi University.",
     a2:"During those years her productions with the Bilgi Musical society were staged at Zorlu Performing Arts Center, and her first steps as a performing arts physiotherapist were taken then.",
     a3:"Holding a Baps Academy Pilates certificate and having focused all of her experience on the performing arts, she specialises in the physical demands of the stage and in helping artists perform safely.",
     nowLabel:"Now",
-    a4:"She is currently continuing her studies in Germany. In-person sessions are briefly paused; online consultations continue.",
+    a4:"She is currently continuing her studies in Germany.",
     cv1t:"BSc · Full scholarship", cv1w:"Bilgi University", cv1d:"Physiotherapy and Rehabilitation",
     cv2t:"Minor · Full scholarship", cv2w:"Bilgi University", cv2d:"Performing and Visual Arts – Performing Arts",
     cv3t:"Stage · 2018", cv3w:"Zorlu Performing Arts Center, Istanbul", cv3d:"Bilgi Musical society productions",
     cv4t:"Certificate", cv4d:"Pilates",
-    cv5t:"High school", cv5w:"Beşiktaş Anatolian High School",
     cv6t:"Ongoing", cv6w:"Germany", cv6d:"Continuing her studies",
     railEdu:"Education", eduTitle:"Education &amp; Workshops",
-    eduText:"We are working on this for you.", eduPill:"In preparation",
+    eduText:"Follow along to hear about upcoming courses and scientific events.",
+    eduPastK:"Past events", eduShotsK:"From our seminars", eduSampleK:"A sample from our course content", eduZoom:"Click to enlarge",
+    ev1d:"4 November 2026", ev1t:"Physiotherapy and Rehabilitation in the Performing Arts", ev1p:"Atlas University",
+    ev2d:"26 April 2026", ev2t:"Physiotherapy in the Performing Arts Seminar: The Science Behind the Stage", ev2p:"Bilgi University", eduPill:"Coming soon",
     railContact:"Contact",
-    contactTitle:"<em>Write</em> for an online consultation",
-    contactText:"In-person sessions are paused for a short while. For an online consultation, get in touch by email.",
+    contactTitle:"Get in <em>touch</em>",
+    contactText:"All enquiries are handled by email. Choose your topic and your email opens with the subject line ready.",
     nOnline:"Online consultation", nOnlineS:"Available", nF2F:"In-person sessions", nF2FS:"Briefly paused",
     emailLabel:"Email", copy:"Copy address", mailto:"Open in mail app",
     copied:"Copied to clipboard", copyFail:"Address selected. Press Ctrl/⌘ + C to copy.",
@@ -828,6 +1020,132 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     poses:["Preparation","Lunge","Arabesque","Relevé"],
     canvasLabel:"Movement analysis drawing showing a dancer’s joint angles through a sequence of positions"
   };
+  const DE = {
+    brandSub:"Physiotherapeutin",
+    navHome:"Startseite", nextLabel:"Nächste Seite",
+    navWho:"Für wen", navServices:"Leistungen", navLab:"Bewegungslabor", navAbout:"Über mich", navEdu:"Fortbildungen &amp; Workshops", navContact:"Kontakt",
+    heroBadge:"Die erste Plattform für Physiotherapie in den darstellenden Künsten in der Türkei",
+    heroTitle:"Physio&shy;therapie für <em>darstellende</em> Künste",
+    heroTagline:"Wo Wissenschaft auf Performance trifft.",
+    heroLead:"Physiotherapie, Bewegungswissenschaft und leistungsorientierte Ansätze für Tänzerinnen, Tänzer und Profis der darstellenden Künste.",
+    pillOnline:"Online-Beratung läuft weiter", pillF2F:"Präsenztermine vorübergehend pausiert",
+    ctaBook:"Kontakt aufnehmen", ctaServices:"Leistungen ansehen",
+    labTitle:"Bewegungsanalyse", pause:"Pause", play:"Abspielen",
+    rKnee:"Kniebeugung", rHip:"Rumpf-Oberschenkel-Winkel", rTrunk:"Rumpfneigung",
+    labCaption:"Knie-, Hüft- und Rumpfwinkel in Vorbereitung, Ausfallschritt, Arabesque und Relevé.",
+    railBody:"Der Körper",
+    manifesto:"Darstellende Künstlerinnen und Künstler verdienen ihren Lebensunterhalt mit ihrem Körper. Jede Probe, jede Vorstellung, jede Wiederholung <em>hinterlässt Spuren.</em>",
+    manifesto2:"Deshalb ist der Körper nicht nur ein Werkzeug, sondern auch eine Investition. Im Bühnenlicht erschafft der Körper und geht zugleich an seine Grenzen – darum verdient er Sorgfalt.",
+    railWho:"Für wen",
+    whoTitle:"Mit wem arbeitet eine Physiotherapeutin für darstellende Künste <em>zusammen?</em>",
+    whoIntro:"Unabhängig von der Disziplin kann eine Physiotherapeutin für darstellende Künste überall dort eine aktive Rolle spielen, wo Bewegung stattfindet.",
+    w1k:"Bewegungsprofis", w1t:"Tänzerinnen und Tänzer",
+    w1p:"Vom Ballett bis zum zeitgenössischen Tanz, von Gesellschaftstänzen bis zum Volkstanz: Zusammenarbeit mit Bewegungsprofis aller Art.",
+    d1:"Ballett", d2:"Moderner Tanz", d3:"Latein (Salsa, Bachata)", d4:"Bauchtanz", d5:"Volkstanz",
+    d6:"Zeitgenössischer Tanz", d8:"Stepptanz", d9:"Flamenco", d10:"Gesellschaftstanz (Standard &amp; Latein)", d11:"Luftakrobatik",
+    w2k:"Instrument und Stimme", w2t:"Musiker und Sänger",
+    w2p:"Unterstützung bei Haltungsproblemen beim Instrumentalspiel, bei Überlastungsverletzungen durch wiederholte Bewegungen sowie durch Mobilitätsarbeit, die Zwerchfell und Stimmleistung fördert.",
+    w3k:"Gesang, Tanz, Schauspiel", w3t:"Musicaldarsteller und Schauspieler",
+    w3p:"Von Musicaldarstellern, die gleichzeitig singen und tanzen, bis zu Theater-, Film- und Fernsehschauspielern: eine kontrollierte, ganzheitliche körperliche Vorbereitung für Bühnenkampf, Stürze, physisches Theater, lange Proben- und Drehtage sowie Haltungs- und Atemkontrolle.",
+    firstMark:"1.",
+    first:"Die erste Physiotherapeutin in der Türkei mit einer Ausbildung sowohl in den darstellenden Künsten als auch in der Physiotherapie.",
+    why1:"Tänzer und andere darstellende Künstler sind – ähnlich wie Sportler – hohen körperlichen Belastungen ausgesetzt. Lange Probenzeiten, sich wiederholende Bewegungen und die hohen biomechanischen Belastungen während der Vorstellung können den Bewegungsapparat erheblich beanspruchen.",
+    why2:"Physiotherapie für die darstellenden Künste wird unter Berücksichtigung des Bewegungsrepertoires, der Leistungsanforderungen und der körperlichen Belastung der Künstlerin oder des Künstlers geplant.",
+    scopeIntro:"Deshalb beschränkt sich Physiotherapie für darstellende Künstler nicht auf die Behandlung nach einer Verletzung. Sie umfasst auch:",
+    s1:"Verletzungsprävention", s2:"Verbesserung der Bewegungsqualität", s3:"Steigerung der Leistungsfähigkeit",
+    s4:"Effizientere Probenzeit", s5:"Eine sichere Rückkehr auf die Bühne", s6:"Die Fähigkeit, gewünschte Bewegungsmuster auszuführen",
+    scopeOutro:"und viele weitere wichtige Prozesse.",
+    railServices:"Leistungen",
+    svcTitle:"Vom Probensaal <em>bis auf die Bühne</em>",
+    svIntro:"In der Praxis bieten wir drei Kernleistungen an. Jede wird individuell geplant – ausgerichtet auf den Körper, das Repertoire und den Bühnenkalender der Künstlerin oder des Künstlers.",
+    spInc:"Physiotherapie umfasst", spFocus:"Schwerpunkte",
+    sp1k:"01 · Physiotherapie", sp1t:"Physiotherapie",
+    sp1p:"Ein physiotherapeutischer Prozess, der auf den Körper und das Repertoire darstellender Künstler zugeschnitten ist. Er beginnt mit einer ausführlichen Befundaufnahme, um die Ursache von Schmerzen oder Einschränkungen zu finden; anschließend wird ein Behandlungsplan erstellt, der zu Ihrem Proben- und Vorstellungsplan passt. Ziel ist nicht nur die Schmerzlinderung, sondern eine sichere und gestärkte Rückkehr auf die Bühne.",
+    sp1i1:"<b>Befund und Bewegungsanalyse</b><span>Untersuchung Ihrer Bewegungsmuster, Haltung und Belastung – auf der Bühne und am Instrument.</span>",
+    sp1i2:"<b>Manuelle Therapie</b><span>Manuelle Behandlungstechniken bei Muskel- und Gelenkeinschränkungen.</span>",
+    sp1i3:"<b>Rehabilitation nach Verletzungen</b><span>Ein schrittweiser Prozess bei Tanz- und Bühnenverletzungen bis zur sicheren Rückkehr auf die Bühne.</span>",
+    sp1i4:"<b>Programme zur Verletzungsprävention</b><span>Gezielte Stärkung gefährdeter Bereiche, abgestimmt auf Repertoire und Probenbelastung.</span>",
+    sp1i5:"<b>Stabilitäts- und Mobilitätstraining</b><span>Übungen, um den gewünschten Bewegungsumfang kontrolliert und sicher zu erreichen.</span>",
+    sp1i6:"<b>Performancespezifisches Training und Kondition</b><span>Aufbau von Kraft, Ausdauer und Kondition für die Anforderungen Ihrer Disziplin.</span>",
+    sp2k:"02 · Pilates", sp2t:"Pilates im Einzeltraining",
+    sp2p:"Pilates-Einheiten, die ganz Ihnen gehören und von einer Physiotherapeutin begleitet werden. Das Programm richtet sich individuell nach den Bedürfnissen Ihres Körpers, eventuellen früheren Verletzungen und Ihren Zielen. Die Bewegungsqualität wird in jeder Einheit genau beobachtet, und die Übungen werden an Ihre Fortschritte angepasst.",
+    sp2i1:"Rumpfkraft und Körperkontrolle", sp2i2:"Verbesserung von Haltung und Ausrichtung", sp2i3:"Flexibilität und Gelenkbeweglichkeit",
+    sp2i4:"Koordination von Atmung und Bewegung", sp2i5:"Sichere Rückkehr zum Training nach Verletzungen",
+    sp3k:"03 · Für alle Bühnenkünstler", sp3t:"Performanceorientiertes Training",
+    sp3p:"Training, abgestimmt auf Ihre Disziplin und die körperlichen Anforderungen der Bühne. Tänzer, Musiker, Sänger, Schauspieler und Musicaldarsteller verlangen ihrem Körper jeweils etwas anderes ab. Das Programm zielt auf die Kraft, Ausdauer, Kontrolle und Beweglichkeit, die Ihre Kunst erfordert – es unterstützt Ihre Leistung und senkt das Verletzungsrisiko.",
+    sp3i1:"Disziplinspezifische Kraft und Ausdauer", sp3i2:"Haltung, Gleichgewicht und Körperkontrolle", sp3i3:"Kontrollierte Flexibilität und Bewegungsumfang",
+    sp3i4:"Kondition für lange Proben und Vorstellungen", sp3i5:"Planung nach Repertoire und Spielzeit",
+    svCtaK:"Das passende Programm", svCtaT:"Nicht sicher, welche Leistung zu Ihnen passt?",
+    svCtaP:"Schreiben Sie kurz, worum es geht – gemeinsam finden wir den richtigen Weg.", svCtaB:"Kontakt aufnehmen",
+    railLab:"Bewegungslabor",
+    labH2:"Wählen Sie eine Bewegung und sehen Sie ihre <em>Analyse</em>",
+    labIntro:"Jede Bewegung wird Schritt für Schritt animiert, während Knie-, Hüft-, Rumpf- und Sprunggelenkwinkel live gemessen werden. Die Werte stammen aus einem repräsentativen Körpermodell.",
+    rAnkle:"Sprunggelenk", rHipH:"Hüfthöhe", watchLabel:"Worauf achtet die Physiotherapeutin?",
+    legend:"Sprunggelenk: + Plantarflexion, − Dorsalextension. Rumpfneigung: + nach vorn, − nach hinten.",
+    railAbout:"Über mich",
+    a1:"Aleyna Keyif schloss mit einem Vollstipendium das Studium der Physiotherapie und Rehabilitation an der Bilgi-Universität ab, zusammen mit einem Nebenfach in Performing and Visual Arts – Performing Arts, ebenfalls an der Bilgi-Universität.",
+    a2:"In dieser Zeit wurden ihre Produktionen mit der Musicalgruppe der Bilgi-Universität im Zorlu Performing Arts Center aufgeführt; damals machte sie ihre ersten Schritte als Physiotherapeutin für darstellende Künste.",
+    a3:"Mit einem Pilates-Zertifikat der Baps Academy und einer ganz auf die darstellenden Künste ausgerichteten Berufserfahrung ist sie darauf spezialisiert, die körperlichen Anforderungen der Bühne zu verstehen und Künstlern ein sicheres Auftreten zu ermöglichen.",
+    nowLabel:"Aktuell",
+    a4:"Sie setzt ihre Ausbildung derzeit in Deutschland fort.",
+    cv1t:"Bachelor · Vollstipendium", cv1w:"Bilgi-Universität", cv1d:"Physiotherapie und Rehabilitation",
+    cv2t:"Nebenfach · Vollstipendium", cv2w:"Bilgi-Universität", cv2d:"Performing and Visual Arts – Performing Arts",
+    cv3t:"Bühne · 2018", cv3w:"Zorlu Performing Arts Center, Istanbul", cv3d:"Produktionen der Bilgi-Musicalgruppe",
+    cv4t:"Zertifikat", cv4d:"Pilates",
+    cv6t:"Laufend", cv6w:"Deutschland", cv6d:"Setzt ihre Ausbildung fort",
+    railEdu:"Fortbildung", eduTitle:"Fortbildungen &amp; Workshops",
+    eduText:"Folgen Sie uns, um über Fortbildungen und wissenschaftliche Veranstaltungen informiert zu bleiben.",
+    eduPastK:"Vergangene Veranstaltungen", eduShotsK:"Eindrücke aus unseren Seminaren", eduSampleK:"Ein Beispiel aus unseren Lehrinhalten", eduZoom:"Zum Vergrößern klicken",
+    ev1d:"4. November 2026", ev1t:"Physiotherapie und Rehabilitation in den darstellenden Künsten", ev1p:"Atlas-Universität",
+    ev2d:"26. April 2026", ev2t:"Seminar Physiotherapie in den darstellenden Künsten: Die Wissenschaft hinter der Bühne", ev2p:"Bilgi-Universität", eduPill:"Demnächst",
+    railContact:"Kontakt",
+    contactTitle:"Schreiben Sie <em>uns</em>",
+    contactText:"Alle Anfragen laufen per E-Mail. Wählen Sie Ihr Thema – Ihre E-Mail öffnet sich mit fertigem Betreff.",
+    tSession:"Terminanfrage", tInfo:"Allgemeine Informationen", tConsult:"Beratungsanfrage",
+    tCorp:"Institutionelle Kooperation", tEdu:"Fortbildung und Workshop", tPress:"Presse und sonstige Anfragen",
+    nOnline:"Online-Beratung", nOnlineS:"Verfügbar", nF2F:"Präsenztermine", nF2FS:"Vorübergehend pausiert",
+    emailLabel:"E-Mail", copy:"Adresse kopieren", mailto:"Im Mail-Programm öffnen",
+    copied:"In die Zwischenablage kopiert", copyFail:"Adresse markiert. Zum Kopieren Strg/⌘ + C drücken.",
+    footer:"Physiotherapie für darstellende Künste",
+    poses:["Vorbereitung","Ausfallschritt","Arabesque","Relevé"],
+    canvasLabel:"Bewegungsanalyse-Zeichnung, die die Gelenkwinkel einer Tänzerin in einer Abfolge von Positionen zeigt"
+  };
+  const ALT_DE = {
+    "logo.png":"Emblem von Performing Arts Physiotherapy",
+    "n-hiphop.jpg":"Eine Tänzerin tanzt mit einer Gruppe im Bühnenlicht",
+    "n-backstage.jpg":"Hinter der Bühne: beleuchteter Schminkspiegel, Kostüme und im Hintergrund eine Vorstellung",
+    "n-duet.jpg":"Zwei zeitgenössische Tänzer auf der Bühne",
+    "n-ankle-tape.jpg":"Eine Ballerina tapt hinter der Bühne ihr Sprunggelenk",
+    "n-shoulder-tape.jpg":"Tape wird vor dem Schminkspiegel auf die Schulter einer Künstlerin geklebt",
+    "n-singer.jpg":"Eine Sängerin singt am Mikrofon mit Orchesterbegleitung",
+    "n-collage.jpg":"Szenen aus den darstellenden Künsten: Hip-Hop, zeitgenössischer Tanz, Stepptanz, lateinamerikanischer Tanz, Volkstanz, Luftakrobatik, eine Musical-Garderobe und Oper",
+    "aleyna-portrait.jpg":"Physiotherapeutin Aleyna Keyif",
+    "aleyna-wembley.jpg":"Physiotherapeutin Aleyna Keyif hinter der Bühne in der OVO Arena Wembley",
+    "aleyna-backstage.jpg":"Zwei Künstlerinnen hinter der Bühne zwischen Kostümständern",
+    "aleyna-concert.jpg":"Physiotherapeutin Aleyna Keyif hinter der Bühne bei einem Manifest-Konzert, bei dem sie als Team-Physiotherapeutin arbeitete",
+    "seminar-wide.jpg":"Physiotherapeutin Aleyna Keyif spricht bei einem Seminar zur Physiotherapie für darstellende Künste",
+    "seminar-1.jpg":"Physiotherapeutin Aleyna Keyif spricht bei einem Seminar zur Physiotherapie für darstellende Künste",
+    "seminar-2.jpg":"Physiotherapeutin Aleyna Keyif spricht bei einem Seminar zur Physiotherapie für darstellende Künste",
+    "seminar-3.jpg":"Physiotherapeutin Aleyna Keyif spricht bei einem Seminar zur Physiotherapie für darstellende Künste",
+    "n-folk.jpg":"Ein Volkstanzensemble in traditioneller Tracht auf der Bühne",
+    "edu-cover.jpg":"Titelfolie der Präsentation „Physiotherapie für darstellende Künste“ von Physiotherapeutin Aleyna Keyif",
+    "edu-squat.jpg":"Infografik: das Squat-Muster (Plié-Grundlage) in Ballett, Volkstanz, Flamenco und Tango",
+    "p17.jpg":"Eine Ballerina in Arabesque an der Stange",
+    "p13.jpg":"Eine Tänzerin auf einer Matte, die ein Knie zur Brust zieht",
+    "p12.jpg":"Eine Ballerina in Spitzenschuhen auf einer Bank hinter der Bühne, die ihr Knie hält",
+    "p23.jpg":"Eine Ballerina im Tendu unter Bühnenlicht",
+    "p19.jpg":"Eine Ballerina im Tendu mit den Armen in zweiter Position",
+    "p21.jpg":"Eine Ballerina in Arabesque bei einer Bühnenprobe",
+    "p16.jpg":"Eine Tänzerin bei einer Sprunggelenkübung mit Widerstandsband",
+    "p24.jpg":"Eine Tänzerin sitzt hinter der Bühne auf dem Boden und hält ihre Wade",
+    "p14.jpg":"Eine Tänzerin im Relevé an der Ballettstange",
+    "p11.jpg":"Eine Tänzerin macht auf einer Matte eine Beckenbrücke",
+    "p15.jpg":"Eine Tänzerin balanciert im Passé und hält sich an der Stange fest",
+    "p20.jpg":"Eine Tänzerin sitzt hinter der Bühne und hält ihr schmerzendes Knie",
+    "p18.jpg":"Eine Tänzerin bei einer seitlichen Dehnung im Sitzen"
+  };
+  const TITLES = { tr:"Performans Sanatları Fizyoterapisi", en:"Performing Arts Physiotherapy", de:"Physiotherapie für darstellende Künste" };
+  const MAIL = "keyifaleyna@gmail.com";
   const TRX = {
     play:"Oynat", pause:"Durdur",
     copied:"Panoya kopyalandı", copyFail:"Adres seçildi. Kopyalamak için Ctrl/⌘ + C.",
@@ -838,22 +1156,31 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   const TR = {};
   nodes.forEach(n => { TR[n.dataset.i18n] = n.innerHTML; });
   Object.assign(TR, TRX);
+  const DICT = { tr:TR, en:EN, de:DE };
   const altNodes = [...document.querySelectorAll("img[data-alt-en]")];
   altNodes.forEach(img => { img.dataset.altTr = img.alt; });
   let lang = "tr";
-  const t = k => (lang === "en" ? EN : TR)[k];
+  const t = k => { const v = DICT[lang][k]; return v != null ? v : TR[k]; };
+  const plain = html => { const d = document.createElement("div"); d.innerHTML = html; return d.textContent.trim(); };
 
   function setLang(l){
-    lang = l;
-    document.documentElement.lang = l;
+    lang = DICT[l] ? l : "tr";
+    document.documentElement.lang = lang;
     nodes.forEach(n => { const v = t(n.dataset.i18n); if (v != null) n.innerHTML = v; });
-    altNodes.forEach(img => { img.alt = l === "en" ? img.dataset.altEn : img.dataset.altTr; });
-    document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+    altNodes.forEach(img => {
+      const file = img.getAttribute("src").split("/").pop();
+      img.alt = lang === "en" ? img.dataset.altEn : lang === "de" ? (ALT_DE[file] || img.dataset.altEn) : img.dataset.altTr;
+    });
+    document.querySelectorAll(".topic[data-topic]").forEach(a => {
+      a.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(plain(t(a.dataset.topic)));
+    });
+    document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     document.getElementById("mocap").setAttribute("aria-label", t("canvasLabel"));
     updatePlayLabel();
     labUI();
-    document.title = l === "en" ? "Performing Arts Physiotherapy" : "Performans Sanatları Fizyoterapisi";
-    try { localStorage.setItem("pap-lang", l); } catch(e){}
+    if (typeof renderNext === "function") renderNext();
+    document.title = TITLES[lang];
+    try { localStorage.setItem("pap-lang", lang); } catch(e){}
   }
   document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
 
@@ -1166,7 +1493,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
                F(P({ t:-26, hd:-18, na:{u:196,f:222}, fa:{u:190,f:216} }, "fifth"), "Geriye cambré", "Cambré back", 1100, 1500),
                F(P({ t:72, hd:16, na:{u:6,f:4}, fa:{u:2,f:0} }, "fifth"), "Öne cambré", "Cambré forward", 1000, 1400) ] }
   ];
-  MOVES.forEach(m => { m.tl = timeline(m.frames); });
+  const MOVES_DE = {
+    plie:{ tag:"Beugen der Knie", note:"Die Knie bewegen sich in einer Linie über den Zehen, und im Demi-plié bleiben die Fersen am Boden.", ph:["1. Position","Demi-plié","Grand plié","Demi-plié"] },
+    releve:{ tag:"Auf die Zehenspitzen heben", note:"Das Sprunggelenk hebt sich gerade, ohne nach innen oder außen wegzuknicken (Sickling), danach folgt ein kontrolliertes Absenken.", ph:["1. Position","Demi-plié","Relevé"] },
+    tendu:{ tag:"Den Fuß am Boden strecken", note:"Das Becken bleibt ruhig, während der Arbeitsfuß bis in die Zehenspitzen gestreckt wird.", ph:["5. Position","Tendu devant","5. Position","Tendu derrière"] },
+    passe:{ tag:"Den Fuß zum Knie ziehen", note:"Die Hüfte des Standbeins bleibt auf gleicher Höhe, und das Gleichgewicht wird gehalten.", ph:["5. Position","Passé","Relevé passé"] },
+    arabesque:{ name:"Arabesque", tag:"Das Bein nach hinten strecken", note:"Die Last verteilt sich ausgewogen auf Hüftstreckung und Lendenwirbelsäule, statt nur in der Wirbelsäule abzuknicken.", ph:["5. Position","Tendu derrière","Arabesque"] },
+    battement:{ tag:"Großer, schneller Beinwurf", note:"Flexibilität der hinteren Oberschenkelmuskulatur am höchsten Punkt und eine kontrollierte Rückkehr des Beins zum Boden.", ph:["5. Position","Battement","Tendu devant"] },
+    lunge:{ name:"Ausfallschritt", tag:"Schritt nach vorn und absinken", note:"Das vordere Knie bleibt über dem Sprunggelenk, während sich die hintere Hüfte öffnet.", ph:["Vorbereitung","Ausfallschritt"] },
+    saute:{ tag:"Sprung aus dem Plié", note:"Die Landung wird über das Plié abgefedert, ohne dass die Knie nach innen fallen.", ph:["1. Position","Demi-plié","In der Luft","Landung"] },
+    cambre:{ tag:"Rumpf nach hinten und vorn beugen", note:"Die Beugung verteilt sich über die ganze Wirbelsäule und knickt nicht an einem Punkt in Nacken oder Lendenwirbelsäule ein.", ph:["Arme in 5. Position","Cambré nach hinten","Cambré nach vorn"] }
+  };
+  MOVES.forEach(m => {
+    const d = MOVES_DE[m.id] || {};
+    m.name.de = d.name || m.name.en; m.tag.de = d.tag || m.tag.en; m.note.de = d.note || m.note.en;
+    m.frames.forEach((f, i) => { f.name.de = (d.ph && d.ph[i]) || f.name.en; });
+    m.tl = timeline(m.frames);
+  });
 
   const labRig = createRig(document.getElementById("lab-canvas"), { hipMarker:true });
   const labMoves = document.getElementById("lab-moves"), labPhases = document.getElementById("lab-phases");
@@ -1234,7 +1577,38 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
   let saved = null;
   try { saved = localStorage.getItem("pap-lang"); } catch(e){}
-  setLang(saved === "en" ? "en" : "tr");
+  if (!DICT[saved]){
+    const nav = (navigator.language || "tr").slice(0, 2).toLowerCase();
+    saved = DICT[nav] ? nav : "tr";
+  }
+  /* ---------- pages ---------- */
+  const PAGES = ["home","kimler","hizmetler","lab","hakkimda","egitim","iletisim"];
+  const NAVKEY = { home:"navHome", kimler:"navWho", hizmetler:"navServices", lab:"navLab", hakkimda:"navAbout", egitim:"navEdu", iletisim:"navContact" };
+  const pageEls = [...document.querySelectorAll("[data-page]")];
+  const navEl = document.getElementById("nav");
+  const nextBox = document.getElementById("next-page"), nextLink = document.getElementById("next-link"), nextName = document.getElementById("next-name");
+  const hashOf = p => p === "home" ? "#top" : "#" + p;
+  let page = "home";
+  function renderNext(){
+    const i = PAGES.indexOf(page), nxt = PAGES[i + 1];
+    nextBox.hidden = !nxt;
+    if (nxt){ nextLink.href = hashOf(nxt); nextName.innerHTML = t(NAVKEY[nxt]); }
+  }
+  function showPage(p){
+    page = PAGES.includes(p) ? p : "home";
+    pageEls.forEach(el => { el.hidden = el.dataset.page !== page; });
+    navEl.querySelectorAll("a").forEach(a => {
+      const target = a.getAttribute("href") === "#top" ? "home" : a.getAttribute("href").slice(1);
+      if (target === page) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    renderNext();
+    window.scrollTo({ top:0, behavior:"instant" });
+  }
+  function fromHash(){ const h = decodeURIComponent(location.hash.slice(1)); showPage(h === "" || h === "top" ? "home" : h); }
+  window.addEventListener("hashchange", fromHash);
+
+  setLang(saved);
+  fromHash();
   updatePlayLabel();
   requestAnimationFrame(frame);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => rigs.forEach(r => r.draw(r.last)));
